@@ -75,8 +75,8 @@ function findCandidates(riding){
         console.log(candidate);
         if (candidate.first_name != null){
           $("#riding").append(
-            '<div class="candidate" style="float:left; display:inline; width:33%;">'
-            +'<img width="30%"  class="candidate-image" src="' + candidate.image_url +'" />'
+            '<div class="candidate">'
+            +'<img class="candidate-image" src="' + candidate.image_url +'" />'
             +'<h3>' + candidate.first_name + ' ' + candidate.last_name +'</h3><h4>'+ candidate.party +'</h4>'
             +'<div id="' + candidate.first_name+candidate.last_name+ '" class="contact-options">'+'</div>'
             +'</div>'
