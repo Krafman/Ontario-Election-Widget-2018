@@ -44,8 +44,8 @@
 *            `##################             :#######        +##############          ,########                         :######## 
 *               ;############,               :#######          ;#########+`           ########`                          ######## 
 *                   `.,,.`                   `,,,,,,,             `.,,`              `,,,,,,,,                           .,,,,,,,,
-*/                                                                                                                                                                  
-            
+* Version 0.2                                                                                                                                                                  
+*/          
 
 function make_base_auth(user, password) {
   var tok = user + ':' + password;
@@ -55,10 +55,10 @@ function make_base_auth(user, password) {
 
 function addSocial(candidate){
   box = $('#'+candidate.first_name+candidate.last_name);
-  if ( candidate.email != null){box.append('<div style="float:left; display:inline; border:solid; width:15%;"><a href="'+candidate.email+'"><i class="fas fa-envelope-square"></i></a></div>');}
-  if ( candidate.facebook != null){box.append('<div style="float:left; display:inline; border:solid; width:15%;"><a href="'+candidate.facebook+'"><i class="fab fa-facebook-square"></i></a></div>');}
-  if ( candidate.twitter != null){box.append('<div style="float:left; display:inline; border:solid; width:15%;"><a href="'+candidate.twitter+'"><i class="fab fa-twitter-square"></i></a></div>');}
-  if ( candidate.url != null){box.append('<div style="float:left; display:inline; border:solid; width:15%;"><a href="'+candidate.url+'"><i class="fas fa-external-link-square-alt"></i></a></div>');}
+  if ( candidate.email != null){box.append('<div class="contact-icon"><a href="'+candidate.email+'"><i class="fas fa-envelope-square"></i></a></div>');}
+  if ( candidate.facebook != null){box.append('<div class="contact-icon"><a href="'+candidate.facebook+'"><i class="fab fa-facebook-square"></i></a></div>');}
+  if ( candidate.twitter != null){box.append('<div class="contact-icon"><a href="'+candidate.twitter+'"><i class="fab fa-twitter-square"></i></a></div>');}
+  if ( candidate.url != null){box.append('<div class="contact-icon"><a href="'+candidate.url+'"><i class="fas fa-external-link-square-alt"></i></a></div>');}
 }
 
 function findCandidates(riding){
@@ -75,7 +75,7 @@ function findCandidates(riding){
         console.log(candidate);
         if (candidate.first_name != null){
           $("#riding").append(
-            '<div class="candidate" style="float:left; display:inline; border:solid; width:33%;">'
+            '<div class="candidate" style="float:left; display:inline; width:33%;">'
             +'<img width="30%"  class="candidate-image" src="' + candidate.image_url +'" />'
             +'<h3>' + candidate.first_name + ' ' + candidate.last_name +'</h3><h4>'+ candidate.party +'</h4>'
             +'<div id="' + candidate.first_name+candidate.last_name+ '" class="contact-options">'+'</div>'
