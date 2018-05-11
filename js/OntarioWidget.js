@@ -45,7 +45,8 @@
 *               ;############,               :#######          ;#########+`           ########`                          ######## 
 *                   `.,,.`                   `,,,,,,,             `.,,`              `,,,,,,,,                           .,,,,,,,,
 * Version 0.2.5.2                                                                                                                                                                  
-*/          
+*/
+     
 
 function make_base_auth(user, password) {
   var tok = user + ':' + password;
@@ -61,6 +62,7 @@ function addSocial(candidate){
   if ( candidate.url != null){box.append('<div class="contact-icon"><a href="'+candidate.url+'"><i class="fas fa-globe fa-3x"></i></a></div>');}
 }
 
+//Use Restlet DB to get candidate info
 function findCandidates(riding){
   $.ajax({
     type: "GET",
@@ -88,6 +90,17 @@ function findCandidates(riding){
   });
 }
 
+function displayCandidates(){
+
+
+}
+
+// function getRidingFromGeo(autocomplete) {
+//         // Get the place details from the autocomplete object.
+
+//       }
+
+//Use Location info to get riding
 function findRiding(postal){
     postal = document.getElementById('postal_code').value.toUpperCase().replace(/\s/g, '');
     var ans;
@@ -109,6 +122,60 @@ function findRiding(postal){
     return ans
 }
 
+function findRiding_2(coordinates){
+    var ans;
+    $.ajax({
+      url: ("https://represent.opennorth.ca/boundaries/ontario-electoral-districts-representation-act-2015/?contains=" + coordinates),
+      dataType: 'jsonp',
+      success: function( result ) {
+        // console.log(result.objects[0].name);
+        var lines_ans = result.objects[0].name
+        var ans = lines_ans.replace(/\u2013|\u2014/g, "-");
+        findCandidates(ans);
+        // var bsets = result.boundaries_centroid;
+        // $.each(bsets, function(i,v) {
+        //   if (v.related.boundary_set_url == "/boundary-sets/ontario-electoral-districts-representation-act-2015/"){
+        //     var lines_ans = (v.name);
+        //     var ans = lines_ans.replace(/\u2013|\u2014/g, "-");
+        //     $("#riding").append(ans + "<br/>");
+        //     findCandidates(ans);            
+        //   }
+        // });
+      }
+    });
+    // return ans
+}
+
+
+function initGeo(){
+
+        var placeSearch, autocomplete;
+
+      // function initAutocomplete() {
+        // Create the autocomplete object, restricting the search to geographical
+        // location types.
+        var location_input = document.getElementById('pac-input');
+        var location_options = {componentRestrictions:{country: 'ca'}}; 
+        autocomplete = new google.maps.places.Autocomplete(location_input, location_options);
+
+        // When the user selects an address from the dropdown, populate the address
+        // fields in the form.
+        autocomplete.addListener('place_changed', function(){
+
+        var place = autocomplete.getPlace();
+
+        var coordinates = (place.geometry.location.lat() +"," + place.geometry.location.lng());
+        // console.log(coordinates)
+
+        findRiding_2(coordinates);
+
+
+
+        });
+      //}
+}     
+
+//DEPRECATED
 function findMPP() {
   postal = document.getElementById('postal_code').value.toUpperCase().replace(/\s/g, '');
   $.ajax({
