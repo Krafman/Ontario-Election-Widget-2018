@@ -44,7 +44,7 @@
 *            `##################             :#######        +##############          ,########                         :######## 
 *               ;############,               :#######          ;#########+`           ########`                          ######## 
 *                   `.,,.`                   `,,,,,,,             `.,,`              `,,,,,,,,                           .,,,,,,,,
-* Version 0.2.5.1                                                                                                                                                                  
+* Version 0.2.5.2                                                                                                                                                                  
 */          
 
 function make_base_auth(user, password) {
@@ -58,7 +58,7 @@ function addSocial(candidate){
   if ( candidate.email != null){box.append('<div class="contact-icon"><a href="'+candidate.email+'"><i class="fas fa-envelope-square fa-3x"></i></a></div>');}
   if ( candidate.facebook != null){box.append('<div class="contact-icon"><a href="'+candidate.facebook+'"><i class="fab fa-facebook-square fa-3x"></i></a></div>');}
   if ( candidate.twitter != null){box.append('<div class="contact-icon"><a href="'+candidate.twitter+'"><i class="fab fa-twitter-square fa-3x"></i></a></div>');}
-  if ( candidate.url != null){box.append('<div class="contact-icon"><a href="'+candidate.url+'"><i class="fas fa-external-link-square-alt fa-3x"></i></a></div>');}
+  if ( candidate.url != null){box.append('<div class="contact-icon"><a href="'+candidate.url+'"><i class="fas fa-globe fa-3x"></i></a></div>');}
 }
 
 function findCandidates(riding){
