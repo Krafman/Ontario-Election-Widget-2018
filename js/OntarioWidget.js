@@ -44,7 +44,7 @@
 *            `##################             :#######        +##############          ,########                         :######## 
 *               ;############,               :#######          ;#########+`           ########`                          ######## 
 *                   `.,,.`                   `,,,,,,,             `.,,`              `,,,,,,,,                           .,,,,,,,,
-* Version 0.3                                                                                                                                                                  
+* Version 0.3.1                                                                                                                                                                  
 */
      
 
@@ -56,10 +56,10 @@ function make_base_auth(user, password) {
 
 function addSocial(candidate){
   box = $('#'+candidate.first_name+candidate.last_name);
-  if ( candidate.email != null){box.append('<div class="contact-icon"><a href="'+candidate.email+'"><i class="fas fa-envelope-square fa-3x"></i></a></div>');}
-  if ( candidate.facebook != null){box.append('<div class="contact-icon"><a href="'+candidate.facebook+'"><i class="fab fa-facebook-square fa-3x"></i></a></div>');}
-  if ( candidate.twitter != null){box.append('<div class="contact-icon"><a href="'+candidate.twitter+'"><i class="fab fa-twitter-square fa-3x"></i></a></div>');}
-  if ( candidate.url != null){box.append('<div class="contact-icon"><a href="'+candidate.url+'"><i class="fas fa-globe fa-3x"></i></a></div>');}
+  if ( candidate.email != null){box.append('<div class="contact-icon"><a href="'+candidate.email+'"><i class="fas fa-envelope-square fa-2x"></i></a></div>');}
+  if ( candidate.facebook != null){box.append('<div class="contact-icon"><a href="'+candidate.facebook+'"><i class="fab fa-facebook-square fa-2x"></i></a></div>');}
+  if ( candidate.twitter != null){box.append('<div class="contact-icon"><a href="'+candidate.twitter+'"><i class="fab fa-twitter-square fa-2x"></i></a></div>');}
+  if ( candidate.url != null){box.append('<div class="contact-icon"><a href="'+candidate.url+'"><i class="fas fa-globe fa-2x"></i></a></div>');}
 }
 
 //Use Restlet DB to get candidate info
