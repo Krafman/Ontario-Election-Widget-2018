@@ -44,7 +44,7 @@
 *            `##################             :#######        +##############          ,########                         :######## 
 *               ;############,               :#######          ;#########+`           ########`                          ######## 
 *                   `.,,.`                   `,,,,,,,             `.,,`              `,,,,,,,,                           .,,,,,,,,
-* Version 0.3.2                                                                                                                                                                  
+* Version 0.3.5                                                                                                                                                                  
 */
      
 
@@ -78,7 +78,7 @@ function findCandidates(riding){
         if (candidate.first_name != null){
           $("#riding").append(
             '<div class="candidate">'
-            +'<img class="candidate-image" src="' + candidate.image_url +'" />'
+            +'<img class="candidate-image" src="' + ((candidate.image_url) ? : (candidate.image_url) : "http://freevector.co/wp-content/uploads/2010/03/20279-dropping-vote-in-box1.png") +'" />'
             +'<h3>' + candidate.first_name + ' ' + candidate.last_name +'</h3><h4>'+ candidate.party +'</h4>'
             +'<div id="' + candidate.first_name+candidate.last_name+ '" class="contact-options">'+'</div>'
             +'</div>'
