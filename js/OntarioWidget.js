@@ -56,10 +56,10 @@ function make_base_auth(user, password) {
 
 function addSocial(candidate){
   box = $('#'+candidate.first_name+candidate.last_name);
-  if ( candidate.email != null){box.append('<div class="contact-icon"><a href=mailto:"'+candidate.email+'"><i class="fas fa-envelope-square fa-2x"></i></a></div>');}
-  if ( candidate.facebook != null){box.append('<div class="contact-icon"><a href="'+candidate.facebook+'"><i class="fab fa-facebook-square fa-2x"></i></a></div>');}
-  if ( candidate.twitter != null){box.append('<div class="contact-icon"><a href="'+candidate.twitter+'"><i class="fab fa-twitter-square fa-2x"></i></a></div>');}
-  if ( candidate.url != null){box.append('<div class="contact-icon"><a href="'+candidate.url+'"><i class="fas fa-globe fa-2x"></i></a></div>');}
+  if ( candidate.email != null){box.append('<div class="contact-icon"><a href=mailto:"'+candidate.email+'" target="_blank"><i class="fas fa-envelope-square fa-2x"></i></a></div>');}
+  if ( candidate.facebook != null){box.append('<div class="contact-icon"><a href="'+candidate.facebook+'" target="_blank"><i class="fab fa-facebook-square fa-2x"></i></a></div>');}
+  if ( candidate.twitter != null){box.append('<div class="contact-icon"><a href="'+candidate.twitter+'" target="_blank"><i class="fab fa-twitter-square fa-2x"></i></a></div>');}
+  if ( candidate.url != null){box.append('<div class="contact-icon"><a href="'+candidate.url+'" target="_blank"><i class="fas fa-globe fa-2x"></i></a></div>');}
 }
 
 //Use Restlet DB to get candidate info
@@ -74,7 +74,7 @@ function findCandidates(riding){
     success: function( result) {
       $("#riding").empty();
       $.each(result, function(index,candidate) {
-        console.log(candidate);
+        // console.log(candidate);
         if (candidate.first_name != null){
           $("#riding").append(
             '<div class="candidate">'
