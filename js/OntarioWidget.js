@@ -44,7 +44,7 @@
 *            `##################             :#######        +##############          ,########                         :######## 
 *               ;############,               :#######          ;#########+`           ########`                          ######## 
 *                   `.,,.`                   `,,,,,,,             `.,,`              `,,,,,,,,                           .,,,,,,,,
-* Version 0.4                                                                                                                                                               
+* Version 0.4.1                                                                                                                                                               
 */
      
 
@@ -155,7 +155,7 @@ function initGeo(){
         // Create the autocomplete object, restricting the search to geographical
         // location types.
         var location_input = document.getElementById('pac-input');
-        var location_options = {componentRestrictions:{country: 'ca', administrativeArea: 'on'}}; 
+        var location_options = {componentRestrictions:{country: 'ca-on'}}; 
         autocomplete = new google.maps.places.Autocomplete(location_input, location_options);
 
         // When the user selects an address from the dropdown, populate the address
